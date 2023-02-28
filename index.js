@@ -39,6 +39,11 @@ app.get("/api/:date?", (req, res) => {
     }
   }
 });
+app.get('/api', (req, res) => {
+  const currentDate = new Date().toUTCString()
+  const currentUnix = Date.parse(currentDate)
+  res.json({ unix: currentUnix, utc: currentDate })
+})
 
 
 // listen for requests :)
